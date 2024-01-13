@@ -24,30 +24,19 @@ public class AutomationPracticeForm {
     @Test
      void fillFromTest() {
         open("/automation-practice-form");
-        //Ввод имени
         $("#firstName").setValue("Oleg");
-        //Ввод фамилии
         $("#lastName").setValue("Olegov");
-        //Ввод электронной почты
         $("#userEmail").setValue("gif@mail.ru");
-        //ВЫбор пола
         $(".custom-control-label").click();
-        //Ввод номера телефона
         $("#userNumber").setValue("8903636352");
-        //Выбор даты рождения
         $(".react-datepicker-wrapper").click();
         $(".react-datepicker__year-select").selectOptionByValue("1905");
         $(".react-datepicker__month-select").selectOptionByValue("5");
         $(".react-datepicker__day--015").click();
-        //Обьект
         $("#subjectsInput").setValue("English").pressEnter();
-        //хобби
         $(".custom-control-label").click();
-        //фото
         $("#uploadPicture").uploadFromClasspath("photo_2024-01-11_23-10-43.jpg");
-        //адрес
         $("#currentAddress").setValue("Kazan, Parina 3");
-        //Штат и город
         $("#state").click();
         $(byText("NCR")).click();
         $("#city").click();
