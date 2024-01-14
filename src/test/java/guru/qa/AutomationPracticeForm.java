@@ -52,15 +52,5 @@ public class AutomationPracticeForm {
         $(".modal-body").shouldHave(text(	"photo_2024-01-11_23-10-43.jpg"));
         $(".modal-body").shouldHave(text("Kazan, Parina 3"));
         $(".modal-body").shouldHave(text("NCR Noida"));
-
-
-
-
-
-
-
-
-
-
     }
 }
