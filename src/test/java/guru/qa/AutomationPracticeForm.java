@@ -18,12 +18,14 @@ public class AutomationPracticeForm {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
+      //Configuration.holdBrowserOpen = true; 
         Configuration.timeout = 5000; // default 4000
     }
     @Test
      void fillFromTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Oleg");
         $("#lastName").setValue("Olegov");
         $("#userEmail").setValue("gif@mail.ru");
