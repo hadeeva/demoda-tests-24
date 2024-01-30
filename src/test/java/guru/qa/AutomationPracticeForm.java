@@ -17,12 +17,14 @@ public class AutomationPracticeForm {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
+      //Configuration.holdBrowserOpen = true; 
         Configuration.timeout = 5000; // default 4000
     }
     @Test
      void fillFromTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Oleg");
         $("#lastName").setValue("Olegov");
         $("#userEmail").setValue("gif@mail.ru");
@@ -51,15 +53,5 @@ public class AutomationPracticeForm {
         $(".modal-body").shouldHave(text(	"photo_2024-01-11_23-10-43.jpg"));
         $(".modal-body").shouldHave(text("Kazan, Parina 3"));
         $(".modal-body").shouldHave(text("NCR Noida"));
-
-
-
-
-
-
-
-
-
-
     }
 }
