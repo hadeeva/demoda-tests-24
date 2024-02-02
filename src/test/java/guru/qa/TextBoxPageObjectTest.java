@@ -19,7 +19,5 @@ public class TextBoxPageObjectTest extends TestBase {
                 .checkAnswer("Kazan, Parina 10")
                 .checkAnswer("Kazan, Sakharova 59/6");
 
-
-
     }
 }
