@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.ResponseTextBoxComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -13,9 +12,9 @@ public class TextBoxPage {
             userEmail = $("#userEmail"),
             currentAddress = $("#currentAddress"),
             permanentAddress = $("#permanentAddress"),
-            submit = $("#submit");
+            submit = $("#submit"),
+            answer = $("#output");
 
-    ResponseTextBoxComponent responseTextBoxComponent = new ResponseTextBoxComponent();
 
     public TextBoxPage openPage() {
         open("/text-box");
@@ -44,8 +43,9 @@ public class TextBoxPage {
         submit.click();
         return this;
      }
-     public TextBoxPage checkResultBox(String key, String value) {
-        responseTextBoxComponent.checkResultsBox(key,value);
-        return this;
+     public TextBoxPage checkAnswer(String value) {
+         answer.shouldHave(text(value));
+         return this;
      }
+
 }

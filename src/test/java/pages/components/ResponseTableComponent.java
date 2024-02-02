@@ -12,4 +12,5 @@ public class ResponseTableComponent {
         $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
     }
 
+
 }
