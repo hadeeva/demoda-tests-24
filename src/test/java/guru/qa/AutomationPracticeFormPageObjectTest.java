@@ -1,15 +1,9 @@
 package guru.qa;
 
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 
 public class AutomationPracticeFormPageObjectTest extends TestBase {
@@ -23,30 +17,50 @@ public class AutomationPracticeFormPageObjectTest extends TestBase {
                 .setLastName("Egorov")
                 .setGender("Other")
                 .setUserNumber("1234567890")
-                .setDateOfBirth("30", "July", "2008");
+                .setDateOfBirth("30", "July", "2008")
+                .setUploadPicture("photo_2024-01-11_23-10-43.jpg")
+                .setAddress("Kazan, Parina 3")
+                .setState("NCR")
+                .setCity("Noida")
+                .setSubjects("English")
+                .setHobbies("Music")
+                .setSubmit();
 
 
+        registrationPage.checkResult("Student Name", "Alex Egorov")
+                .checkResult("Gender", "Other")
+                .checkResult("Mobile", "1234567890")
+                .checkResult("Date of Birth", "30 July,2008")
+                .checkResult("Subjects", "English")
+                .checkResult("Hobbies", "Music")
+                .checkResult("Picture", "photo_2024-01-11_23-10-43.jpg")
+                .checkResult("Address", "Kazan, Parina 3")
+                .checkResult("State and City", "NCR Noida");
+    }
 
-            //   .setUploadPicture("photo_2024-01-11_23-10-43.jpg");
+    @Test
+        void requiredFieldsTest() {
+        registrationPage.openPage()
+                .setFirstName("Oleg")
+                .setLastName("Olegov")
+                .setGender("Other")
+                .setUserNumber("0987654321")
+                .setSubmit();
 
-          //  $("#uploadPicture").uploadFromClasspath("photo_2024-01-11_23-10-43.jpg");
-         //   $("#currentAddress").setValue("Kazan, Parina 3");
-         //   $("#state").click();
-         //   $(byText("NCR")).click();
-         //   $("#city").click();
-         //   $(byText("Noida")).click();
-         //   $("#submit").click();
+        registrationPage.checkResult("Student Name", "Oleg Olegov")
+                .checkResult("Gender", "Other")
+                .checkResult("Mobile", "0987654321");
 
-          //  $(".modal-body").shouldHave(text("Oleg"));
-          //  $(".modal-body").shouldHave(text("Olegov"));
-          //  $(".modal-body").shouldHave(text("gif@mail.ru"));
-           // $(".modal-body").shouldHave(text("8903636352"));
-          //  $(".modal-body").shouldHave(text("15 June,1905"));
-         //   $(".modal-body").shouldHave(text("English"));
-          //  $(".modal-body").shouldHave(text("photo_2024-01-11_23-10-43.jpg"));
-          //  $(".modal-body").shouldHave(text("Kazan, Parina 3"));
-          //  $(".modal-body").shouldHave(text("NCR Noida"));
+
 
         }
+    @Test
+    void  unfilledFieldsTest() {
+        registrationPage.openPage()
+                .setSubmit()
+                .notVisibleTable();
+
     }
+
+}
 
