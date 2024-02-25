@@ -15,6 +15,7 @@ public class AutomationPracticeFormPageObjectTest extends TestBase {
         registrationPage.openPage()
                 .setFirstName("Alex")
                 .setLastName("Egorov")
+                .setEmail("5554@ggh.tt")
                 .setGender("Other")
                 .setUserNumber("1234567890")
                 .setDateOfBirth("30", "July", "2008")
@@ -35,7 +36,8 @@ public class AutomationPracticeFormPageObjectTest extends TestBase {
                 .checkResult("Hobbies", "Music")
                 .checkResult("Picture", "photo_2024-01-11_23-10-43.jpg")
                 .checkResult("Address", "Kazan, Parina 3")
-                .checkResult("State and City", "NCR Noida");
+                .checkResult("State and City", "NCR Noida")
+                .checkResult("Student Email", "5554@ggh.tt");
     }
 
     @Test
@@ -50,17 +52,12 @@ public class AutomationPracticeFormPageObjectTest extends TestBase {
         registrationPage.checkResult("Student Name", "Oleg Olegov")
                 .checkResult("Gender", "Other")
                 .checkResult("Mobile", "0987654321");
-
-
-
         }
     @Test
     void  unfilledFieldsTest() {
         registrationPage.openPage()
                 .setSubmit()
                 .notVisibleTable();
-
     }
-
 }
 

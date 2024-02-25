@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
     public class RegistrationPage {
-        private SelenideElement firstNameInput = $("#firstName"),
+        private final SelenideElement firstNameInput = $("#firstName"),
                 lastNameInput = $("#lastName"),
                 genderWrapper = $("#genterWrapper"),
                 userNumberInput = $("#userNumber"),
@@ -23,12 +23,8 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
                 sudjectsInput = $("#subjectsInput"),
                 hobbies = $("#hobbiesWrapper"),
                 submit = $("#submit"),
-                modalComponent = $(".modal-content");
-
-
-
-
-
+                modalComponent = $(".modal-content"),
+                email = $("#userEmail");
 
 
         CalendarComponent calendarComponent = new CalendarComponent();
@@ -100,7 +96,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
         }
 
         public RegistrationPage setSubjects(String value) {
-            sudjectsInput.setValue("English").pressEnter();
+            sudjectsInput.setValue(value).pressEnter();
             return this;
         }
 
@@ -125,6 +121,11 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
             return this;
 
+        }
+        public RegistrationPage setEmail(String value) {
+            email.setValue(value);
+
+            return this;
         }
 
        }
