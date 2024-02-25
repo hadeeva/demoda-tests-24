@@ -35,7 +35,7 @@ public class AutomationPracticeForm {
         $(".react-datepicker__day--015").click();
         $("#subjectsInput").setValue("English").pressEnter();
         $(".custom-control-label").click();
-        $("#uploadPicture").uploadFromClasspath("photo_2024-01-11_23-10-43.jpg");
+        $("#uploadPicture").uploadFromClasspath("777.jpg");
         $("#currentAddress").setValue("Kazan, Parina 3");
         $("#state").click();
         $(byText("NCR")).click();
@@ -49,7 +49,7 @@ public class AutomationPracticeForm {
         $(".modal-body").shouldHave(text("8903636352"));
         $(".modal-body").shouldHave(text("15 June,1905"));
         $(".modal-body").shouldHave(text("English"));
-        $(".modal-body").shouldHave(text(	"photo_2024-01-11_23-10-43.jpg"));
+        $(".modal-body").shouldHave(text("777.jpg"));
         $(".modal-body").shouldHave(text("Kazan, Parina 3"));
         $(".modal-body").shouldHave(text("NCR Noida"));
     }
